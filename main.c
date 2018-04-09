@@ -11,13 +11,13 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 int	main() {
   int	i;
   int	random;
 
   i = 0;
-  int *ok;
   int *ptr_one;
   int *ptr_two;
   if ((ptr_one = (int *)realloc(NULL, 100000000)) == NULL) {

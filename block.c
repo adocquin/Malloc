@@ -8,7 +8,7 @@
 ** Last update Sun Feb 14 23:36:50 2016 Avel Docquin
 */
 
-#include "block.h"
+#include "headers/block.h"
 
 t_block *block = NULL;
 

@@ -14,26 +14,35 @@ RM	= rm -f
 
 NAME	= libmy_malloc.so
 
+MAIN	= main.out
+
 SRC	= malloc.c \
 	 show_alloc_mem.c \
 	 free.c \
 	 realloc.c \
-	 block.c 
+	 block.c
+
+MAIN_SRC = main.c
 
 OBJ	= $(SRC:.c=.o)
 
+MAIN_OBJ = $(MAIN_SRC:.c=.o)
+
 CFLAGS	+= -Wall -Wextra
 
-$(NAME):$(OBJ) 
+$(NAME):$(OBJ)
 	$(CC) -c $(CFLAGS) -fpic $(SRC) && $(CC) -shared -o $(NAME) $(OBJ)
 
-all:	$(NAME)
+$(MAIN):$(MAIN_OBJ)
+	$(CC) -o $(MAIN) $(MAIN_OBJ) $(CFLAGS)
+
+all:	$(NAME) $(MAIN)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(MAIN_OBJ)
 
 fclean:	clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(MAIN)
 
 re:	fclean all
 

@@ -8,7 +8,7 @@
 ** Last update Sun Feb 14 23:36:44 2016 Avel Docquin
 */
 
-#include "realloc.h"
+#include "headers/realloc.h"
 
 extern t_block	*block;
 
